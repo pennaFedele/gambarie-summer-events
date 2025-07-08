@@ -5,14 +5,14 @@
   "description": "A React application for managing events and activities in Gambarie, featuring multilingual support and admin functionality",
   "type": "module",
   "license": "MIT",
-  "author": "Your Name <your.email@example.com>",
-  "homepage": "https://github.com/yourusername/gambarie-summer-events",
+  "author": "Fedele Penna <fedelep@icloud.com>",
+  "homepage": "https://github.com/pennaFedele/gambarie-summer-events",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/gambarie-summer-events.git"
+    "url": "https://github.com/pennaFedele/gambarie-summer-events.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/gambarie-summer-events/issues"
+    "url": "https://github.com/pennaFedele/gambarie-summer-events/issues"
   },
   "keywords": ["react", "typescript", "vite", "supabase", "events", "multilingual", "tailwind"],
   "scripts": {

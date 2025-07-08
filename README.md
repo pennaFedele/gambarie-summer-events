@@ -37,7 +37,7 @@ Before running this application, make sure you have:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/gambarie-summer-events.git
+git clone https://github.com/pennaFedele/gambarie-summer-events.git
 cd gambarie-summer-events
 ```
 
@@ -98,4 +98,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-If you encounter any issues or have questions, please [open an issue](https://github.com/yourusername/gambarie-summer-events/issues) on GitHub.
+If you encounter any issues or have questions, please [open an issue](https://github.com/pennaFedele/gambarie-summer-events/issues) on GitHub.
