@@ -32,6 +32,7 @@ Before running this application, make sure you have:
 - npm or yarn package manager
 - A Supabase account and project
 - (Optional) Cloudflare Turnstile site key for CAPTCHA
+- (Optional) Umami Analytics for website tracking
 
 ## Installation
 
@@ -57,9 +58,13 @@ VITE_SUPABASE_URL=your_supabase_url_here
 VITE_SUPABASE_ANON_KEY=your_supabase_anon_key_here
 VITE_TURNSTILE_SITE_KEY=your_turnstile_site_key_here
 VITE_CAPTCHA_ENABLED=true
+VITE_UMAMI_SCRIPT_URL=https://your-umami-instance.com/script.js
+VITE_UMAMI_WEBSITE_ID=your-website-id
 ```
 
 5. Set up your Supabase database by running the SQL migrations in the `supabase/migrations/` folder.
+
+6. (Optional) Configure Umami Analytics by updating the script tag in `index.html` with your analytics configuration.
 
 ## Development
 
@@ -87,6 +92,25 @@ This application uses Supabase as its backend. The database schema includes:
 - **app_settings**: Application configuration
 
 Run the migration files in the `supabase/migrations/` directory to set up your database schema.
+
+## Analytics (Optional)
+
+This project includes optional Umami Analytics support for website tracking. The analytics are loaded dynamically based on environment variables.
+
+To enable analytics:
+
+1. Set up your own Umami instance or use a hosted service
+2. Add your Umami configuration to your `.env` file:
+   ```env
+   VITE_UMAMI_SCRIPT_URL=https://your-umami-instance.com/script.js
+   VITE_UMAMI_WEBSITE_ID=your-website-id
+   ```
+3. The analytics will be automatically initialized when the app loads
+
+**Features**:
+- Only loads if both `VITE_UMAMI_SCRIPT_URL` and `VITE_UMAMI_WEBSITE_ID` are configured
+- Gracefully handles missing configuration without errors
+- Dynamically injects the Umami script into the page head
 
 ## Contributing
 
