@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Heart, LogIn, LogOut, User, Shield, MapPin, Mail, Phone } from "lucide-react";
+import { Heart, LogIn, LogOut, User, Shield, MapPin, Mail, Phone, Github, Star } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { useAdmin } from "@/hooks/useAdmin";
 import { Link, useNavigate } from "react-router-dom";
@@ -71,10 +71,19 @@ export const Footer = () => {
               <p className="mt-3">
                 {t('footer.supportText')}
               </p>
-              <div className="mt-2">
-                <Link to="https://www.buymeacoffee.com/fedele">
+              <div className="mt-2 flex gap-2">
+                <Link to="https://www.buymeacoffee.com/fedele" className="flex-1">
                   <Button variant="outline" size="sm" className="w-full justify-start">
                     Buy me a coffee
+                  </Button>
+                </Link>
+                <Link
+                  to="https://github.com/fedelepenna/gambarie-summer-events" 
+                  className="flex-1"
+                >
+                  <Button variant="outline" size="sm" className="w-full justify-start">
+                    <Github className="w-4 h-4 mr-2" />
+                    Star on GitHub
                   </Button>
                 </Link>
               </div>
