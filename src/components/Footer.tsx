@@ -13,7 +13,15 @@ export const Footer = () => {
 
   const handleSignOut = async () => {
     await signOut();
-    navigate("/");
+    // Preserve UTM parameters when redirecting after logout
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmParams = Array.from(urlParams.entries())
+      .filter(([key]) => key.startsWith('utm_'))
+      .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+      .join('&');
+    
+    const redirectPath = utmParams ? `/?${utmParams}` : '/';
+    navigate(redirectPath);
   };
 
   return (

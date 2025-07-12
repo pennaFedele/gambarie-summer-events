@@ -45,7 +45,15 @@ export default function Auth() {
 
   useEffect(() => {
     if (user) {
-      navigate('/');
+      // Preserve UTM parameters when redirecting after login
+      const urlParams = new URLSearchParams(window.location.search);
+      const utmParams = Array.from(urlParams.entries())
+        .filter(([key]) => key.startsWith('utm_'))
+        .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+        .join('&');
+      
+      const redirectPath = utmParams ? `/?${utmParams}` : '/';
+      navigate(redirectPath);
     }
   }, [user, navigate]);
 
@@ -91,7 +99,15 @@ export default function Auth() {
 
       if (error) throw error;
       
-      navigate('/');
+      // Preserve UTM parameters when redirecting after login
+      const urlParams = new URLSearchParams(window.location.search);
+      const utmParams = Array.from(urlParams.entries())
+        .filter(([key]) => key.startsWith('utm_'))
+        .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+        .join('&');
+      
+      const redirectPath = utmParams ? `/?${utmParams}` : '/';
+      navigate(redirectPath);
     } catch (error: unknown) {
       const errorMessage = (error as { message?: string })?.message || 'Errore sconosciuto';
       toast({
@@ -140,7 +156,16 @@ export default function Auth() {
     setIsLoading(true);
 
     try {
-      const redirectUrl = `${window.location.origin}/`;
+      // Preserve UTM parameters in email redirect URL for sign up
+      const urlParams = new URLSearchParams(window.location.search);
+      const utmParams = Array.from(urlParams.entries())
+        .filter(([key]) => key.startsWith('utm_'))
+        .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+        .join('&');
+      
+      const redirectUrl = utmParams ? 
+        `${window.location.origin}/?${utmParams}` : 
+        `${window.location.origin}/`;
       
       const authOptions: {
         emailRedirectTo: string;
